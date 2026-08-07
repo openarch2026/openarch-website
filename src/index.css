@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0px;
+  }
+
+  :root,
+  .dark {
+    --bg: 0 0 0;
+    --fg: 255 255 255;
+  }
+
+  .light {
+    --bg: 255 255 255;
+    --fg: 0 0 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Geist Sans', system-ui, sans-serif;
+    background: rgb(var(--bg));
+    color: rgb(var(--fg));
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  ::selection {
+    background: rgb(var(--fg));
+    color: rgb(var(--bg));
+  }
+}
+
+@layer utilities {
+  .font-mono-elegant {
+    font-family: 'Geist Mono', monospace;
+  }
+  .tracking-mega {
+    letter-spacing: 0.42em;
+  }
+
+  /* themed tokens */
+  .bg-site {
+    background-color: rgb(var(--bg));
+  }
+  .bg-inv {
+    background-color: rgb(var(--fg));
+  }
+  .text-site {
+    color: rgb(var(--fg));
+  }
+  .text-inv {
+    color: rgb(var(--bg));
+  }
+  .text-dim {
+    color: rgb(var(--fg) / 0.6);
+  }
+  .text-faint {
+    color: rgb(var(--fg) / 0.35);
+  }
+  .hairline {
+    border-color: rgb(var(--fg) / 0.14);
+  }
+  .hairline-strong {
+    border-color: rgb(var(--fg) / 0.25);
+  }
+  .bg-line {
+    background-color: rgb(var(--fg) / 0.12);
+  }
+  .bg-hover-tint:hover {
+    background-color: rgb(var(--fg) / 0.04);
+  }
+  .fg-04 {
+    background-color: rgb(var(--fg) / 0.04);
+  }
+  .fg-08 {
+    background-color: rgb(var(--fg) / 0.08);
+  }
+  .fg-12 {
+    background-color: rgb(var(--fg) / 0.12);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
