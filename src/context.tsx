@@ -8,9 +8,6 @@ interface AppCtx {
   setLang: (l: Lang) => void
   theme: Theme
   toggleTheme: () => void
-  contactOpen: boolean
-  openContact: () => void
-  closeContact: () => void
 }
 
 const Ctx = createContext<AppCtx>({
@@ -18,9 +15,6 @@ const Ctx = createContext<AppCtx>({
   setLang: () => {},
   theme: 'dark',
   toggleTheme: () => {},
-  contactOpen: false,
-  openContact: () => {},
-  closeContact: () => {},
 })
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
@@ -33,7 +27,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (saved === 'light' || saved === 'dark') return saved
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
   })
-  const [contactOpen, setContactOpen] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('oa-lang', lang)
@@ -54,9 +47,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setLang: setLangState,
         theme,
         toggleTheme: () => setTheme((t) => (t === 'dark' ? 'light' : 'dark')),
-        contactOpen,
-        openContact: () => setContactOpen(true),
-        closeContact: () => setContactOpen(false),
       }}
     >
       {children}

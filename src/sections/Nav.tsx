@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useApp, type Lang } from '../context'
-import { T } from '../i18n'
+import { T, CONTACT } from '../i18n'
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   const { theme } = useApp()
   const src = theme === 'dark' ? '/images/logo-white.png' : '/images/logo-black.png'
   return (
     <Link to="/" className="flex items-center" aria-label="OpenArch">
-      <img src={src} alt="OpenArch" className={compact ? 'h-8 w-auto' : 'h-8 w-auto'} />
+      <img src={src} alt="OpenArch" className={compact ? 'h-4 w-auto' : 'h-5 w-auto'} />
     </Link>
   )
 }
@@ -22,7 +22,7 @@ const LANGS: { code: Lang; label: string }[] = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const navigate = useNavigate()
-  const { lang, setLang, theme, toggleTheme, openContact } = useApp()
+  const { lang, setLang, theme, toggleTheme } = useApp()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -73,7 +73,7 @@ export default function Nav() {
 
         <div className="flex items-center gap-3 md:gap-5">
           {/* language switcher */}
-          <div className="flex items-center border hairline-strong fg-04">
+          <div className="flex items-center border hairline-strong">
             {LANGS.map((l) => (
               <button
                 key={l.code}
@@ -92,7 +92,7 @@ export default function Nav() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="w-8 h-8 border hairline-strong fg-04 flex items-center justify-center text-dim hover:text-site transition-colors"
+            className="w-8 h-8 border hairline-strong flex items-center justify-center text-dim hover:text-site transition-colors"
           >
             {theme === 'dark' ? (
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -106,12 +106,12 @@ export default function Nav() {
             )}
           </button>
 
-          <button
-            onClick={openContact}
-            className="hidden md:block font-mono-elegant text-[11px] uppercase tracking-[0.26em] border hairline-strong fg-04 hover:bg-inv hover:text-inv transition-colors px-4 py-2"
+          <a
+            href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(T.nav.cta[lang])}`}
+            className="hidden md:block font-mono-elegant text-[11px] uppercase tracking-[0.26em] border hairline-strong hover:bg-inv hover:text-inv transition-colors px-4 py-2"
           >
             {T.nav.cta[lang]}
-          </button>
+          </a>
         </div>
       </div>
     </header>

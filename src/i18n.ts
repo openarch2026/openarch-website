@@ -319,32 +319,6 @@ export const T = {
     status: 'EXPERT NETWORK · RESOURCE HUB · SOLUTION DEVELOPMENT',
   },
 
-  modal: {
-    title: { en: 'Book a Consultation', vi: 'Đặt lịch tư vấn', zh: '预约咨询' },
-    name: { en: 'Full name', vi: 'Họ và tên', zh: '姓名' },
-    email: { en: 'Email', vi: 'Email', zh: '邮箱' },
-    phone: { en: 'Phone', vi: 'Số điện thoại', zh: '电话' },
-    message: { en: 'What do you need help with?', vi: 'Nội dung cần tư vấn', zh: '咨询内容' },
-    submit: { en: 'SEND', vi: 'GỬI', zh: '发送' },
-    note: {
-      en: 'We will get back to you at info@openarch.vn',
-      vi: 'Chúng tôi sẽ phản hồi qua email info@openarch.vn',
-      zh: '我们将通过 info@openarch.vn 与您联系',
-    },
-    close: { en: 'Close', vi: 'Đóng', zh: '关闭' },
-    sending: { en: 'Sending…', vi: 'Đang gửi…', zh: '发送中…' },
-    sent: {
-      en: 'Thank you. We will get back to you soon.',
-      vi: 'Cảm ơn bạn. Chúng tôi sẽ liên hệ lại sớm nhất.',
-      zh: '感谢您的咨询，我们会尽快与您联系。',
-    },
-    error: {
-      en: 'Something went wrong. Please try again.',
-      vi: 'Có lỗi xảy ra, vui lòng thử lại.',
-      zh: '发生错误，请重试。',
-    },
-  },
-
   meta: {
     title: {
       en: 'OpenArch — Digital transformation for Architecture, Engineering & Construction',
@@ -361,9 +335,9 @@ export const T = {
 
 export const CONTACT = {
   email: 'info@openarch.vn',
-  phone1: '(+84) 939 460 468',
+  phone1: '0939 460 468',
   phone1Intl: '+84939460468',
-  phone2: '(+84) 918 099 336',
+  phone2: '0918 099 336',
   phone2Intl: '+84918099336',
 }
 

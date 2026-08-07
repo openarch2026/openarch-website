@@ -4,7 +4,7 @@ import { useApp } from '../context'
 import { T, CONTACT } from '../i18n'
 
 export default function CTA() {
-  const { lang, openContact } = useApp()
+  const { lang } = useApp()
   const benefits = T.cta.benefits[lang]
 
   return (
@@ -42,12 +42,12 @@ export default function CTA() {
 
         <div className="mt-14 flex flex-wrap items-center gap-8" data-reveal>
           <Magnetic>
-            <button
-              onClick={openContact}
+            <a
+              href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(T.cta.button[lang] + ' — OpenArch')}`}
               className="block font-mono-elegant text-xs tracking-[0.3em] uppercase bg-inv text-inv px-10 py-5 hover:opacity-85 transition-opacity"
             >
               {T.cta.button[lang]}
-            </button>
+            </a>
           </Magnetic>
           <div className="flex flex-col gap-3">
             <a

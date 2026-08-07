@@ -10,7 +10,6 @@ import CTA from './sections/CTA';
 import Footer from './sections/Footer';
 import FacilityDetail from './pages/FacilityDetail';
 import Marquee from './components/Marquee';
-import ContactModal from './components/ContactModal';
 import { useReveal } from './hooks/useReveal';
 import { AppProvider, useApp } from './context';
 import { T } from './i18n';
@@ -73,7 +72,6 @@ function App() {
   return (
     <AppProvider>
       <MetaSync />
-      <ContactModal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />

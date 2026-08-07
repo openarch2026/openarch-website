@@ -14,17 +14,6 @@ export default function Footer() {
             <p className="mt-8 max-w-sm text-sm font-light text-dim leading-loose">
               {T.footer.tagline[lang]}
             </p>
-            <a
-              href="https://www.facebook.com/openarch2026"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="mt-6 inline-flex w-9 h-9 border hairline-strong fg-04 items-center justify-center text-dim hover:text-site transition-colors"
-            >
-              <svg width="16" height="16" viewBox="0 0 320 512" fill="currentColor">
-                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-              </svg>
-            </a>
           </div>
           <div className="md:col-span-3">
             <p className="font-mono-elegant text-[10px] tracking-[0.3em] text-faint uppercase mb-6">
